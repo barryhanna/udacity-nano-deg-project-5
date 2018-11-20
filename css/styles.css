@@ -19,6 +19,7 @@ body {
 	background-color: var(--main-colour);
   position:relative;
   max-width: 800px;
+  margin-top: 0;
   margin-right: auto;
   margin-left: auto;
 }
@@ -45,7 +46,7 @@ a img{
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 20px;
+  /* margin: 0 0 20px; */
 }
 
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -53,6 +54,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 
 header {
+  background: var(--main-colour);
   max-width: 800px;
 }
 
@@ -97,6 +99,7 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin-top: 0;
+    margin-bottom: 0;
     max-width: 800px;
     width: 100%;
 }
@@ -232,6 +235,8 @@ nav h1 a {
 /* ====================== Restaurant Details ====================== */
 .inside header {
   position: fixed;
+  padding-bottom: 0;
+  margin-bottom: 0;
   top: 0;
   width: 100%;
   justify-content: center;
@@ -265,7 +270,8 @@ nav h1 a {
   font-size: 20pt;
   font-weight: 200;
   letter-spacing: 0;
-  margin: 15px 0 30px;
+  /* margin: 15px 0 30px; */
+  padding-top: 15px;
   text-transform: uppercase;
   line-height: 1.1;
 }
@@ -289,11 +295,13 @@ nav h1 a {
 }
 
 #restaurant-container, #reviews-container {
-  border-bottom: 1px solid #d9d9d9;
+  /* border-bottom: 1px solid #d9d9d9; */
   padding-top: 140px;
   padding-left: 15px;
   padding-right: 15px;
   width: 100%;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #restaurant-img {
