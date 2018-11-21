@@ -211,6 +211,10 @@ nav h1 a {
   #restaurants-list li {
     max-width: 45%;
   }
+
+  .filter-options h2 {
+    display: block;
+  }
 } 
 
 
