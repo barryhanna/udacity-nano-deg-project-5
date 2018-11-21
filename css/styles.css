@@ -2,6 +2,7 @@
 /* CSS Document */
 :root  {
   --main-colour: #252831;
+  --page-width: 1000px;
 }
 
 * {
@@ -18,7 +19,7 @@ body,td,th,p{
 body {
 	background-color: var(--main-colour);
   position:relative;
-  max-width: 800px;
+  max-width: var(--page-width);
   margin-top: 0;
   margin-right: auto;
   margin-left: auto;
@@ -55,7 +56,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 
 header {
   background: var(--main-colour);
-  max-width: 800px;
+  max-width: var(--page-width);
 }
 
 #maincontent {
@@ -100,14 +101,14 @@ nav h1 a {
     font-size: 17px;
     margin-top: 0;
     margin-bottom: 0;
-    max-width: 800px;
-    width: 100%;
+    max-width: var(--page-width);
 }
 
 /* Display list items side by side */
 #breadcrumb li {
     /* margin-top: 10px; */
     display: inline;
+    font-size: 1.2em;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -167,6 +168,7 @@ nav h1 a {
   margin: 10px;
   padding: 0 10px;
   width: 200px;
+  display: block;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -176,25 +178,44 @@ nav h1 a {
   margin: 0;
   padding: 30px 0 60px;
   text-align: center;
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* @media only screen and (min-width: 800px) {
-  #restaurants-list li {
-    width: 50%;
+/* @media only screen and (min-width: 455px) {
+  .filter-options h2 {
+    display: inline-block;
   }
-} */
+}  */
 
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 15px;
-  padding: 0 30px 25px;
+  padding: 0 15px 25px;
   text-align: left;  
+  min-width: 300px;
+  max-width: 350px;
+}
+
+@media only screen and (min-width: 0px) {
+  #restaurants-list li {
+    max-width: 100%;
+  }
+} 
+
+@media only screen and (min-width: 730px) {
+  #restaurants-list li {
+    max-width: 45%;
+  }
+} 
+
+
+#restaurants-list li p {
+  font-size: 1.1em;
 }
 
 #restaurants-list .restaurant-img {
@@ -344,4 +365,8 @@ nav h1 a {
 
 #restaurant-hours td {
   color: #666;
+}
+
+.review-author-name {
+  font-style: italic;
 }
