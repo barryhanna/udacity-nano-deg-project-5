@@ -371,6 +371,10 @@ nav h1 a {
   color: #666;
 }
 
+#restaurant-hours caption, #restaurant-hours tr th {
+  display: none;
+}
+
 .review-author-name {
   font-style: italic;
 }

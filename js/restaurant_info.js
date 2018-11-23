@@ -95,6 +95,26 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  const tableHeader = document.createElement('tr');
+  
+  const tableCaption = document.createElement("caption");
+  tableCaption.innerText = `${self.restaurant.name} opening hours`;
+  hours.appendChild(tableCaption);
+
+  const dayOfWeekHeading = document.createElement("th");
+  dayOfWeekHeading.innerText = "Week Day";
+  tableHeader.appendChild(dayOfWeekHeading);
+
+  const openingTime = document.createElement("th");
+  openingTime.innerText = "Opens";
+  tableHeader.appendChild(openingTime);
+
+  const closingTime = document.createElement("th");
+  closingTime.innerText = "Closes";
+  tableHeader.appendChild(closingTime);
+  
+  hours.appendChild(tableHeader);
+
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
@@ -102,9 +122,16 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     day.innerHTML = key;
     row.appendChild(day);
 
-    const time = document.createElement('td');
-    time.innerHTML = operatingHours[key];
-    row.appendChild(time);
+    let openTimeEl = document.createElement('td');
+    let closeTimeEl = document.createElement('td');
+
+    const [open,close] = operatingHours[key].split("-");
+    
+    openTimeEl.innerHTML = open.trim();
+    closeTimeEl.innerHTML = close.trim();
+
+    row.appendChild(openTimeEl);
+    row.appendChild(closeTimeEl);
 
     hours.appendChild(row);
   }
