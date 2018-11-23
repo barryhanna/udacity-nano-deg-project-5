@@ -134,6 +134,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(closeTimeEl);
 
     hours.appendChild(row);
+
   }
 }
 
@@ -143,7 +144,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
-  title.setAttribute('tabindex','0');
+  // title.setAttribute('tabindex','0');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
