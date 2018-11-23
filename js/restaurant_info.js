@@ -125,10 +125,14 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     let openTimeEl = document.createElement('td');
     let closeTimeEl = document.createElement('td');
 
-    const [open,close] = operatingHours[key].split("-");
-    
-    openTimeEl.innerHTML = open.trim();
-    closeTimeEl.innerHTML = close.trim();
+    if(operatingHours[key].includes("-")) {
+      const [open,close] = operatingHours[key].split("-");
+      openTimeEl.innerHTML = open.trim();
+      closeTimeEl.innerHTML = close.trim();
+    } else {
+      openTimeEl.innerHTML = operatingHours[key];
+      closeTimeEl.innerHTML = " ";
+    }
 
     row.appendChild(openTimeEl);
     row.appendChild(closeTimeEl);
