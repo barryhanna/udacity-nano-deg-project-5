@@ -274,7 +274,7 @@ nav h1 a {
 .inside #map-container {
   /* background: blue none repeat fixed 0 0; */
   /* height: 87%; */
-  /* position: fixed; */
+  /* position: fixed;  */
   /* right: 0; */
   top: 80px;
   width: 100%;
@@ -380,4 +380,12 @@ nav h1 a {
 
 .review-author-name {
   font-style: italic;
+}
+
+.inside .leaflet-top.leaflet-left {
+  z-index: 500;
+}
+
+.inside .leaflet-bottom.leaflet-right {
+  z-index: 500;
 }
