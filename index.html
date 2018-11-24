@@ -14,21 +14,21 @@
 <body>
   <header>
     <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1 tabindex='1'><a href="/">Restaurant Reviews</a></h1>
     </nav>
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
+    <section id="map-container" tabindex='2'>
       <div id="map" aria-label="restaurant location map" role="application"></div>
     </section>
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="Restaurant Neighborhood">
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="Restaurant Neighborhood" tabindex='3'>
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-label="Restaurant Cuisine">
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-label="Restaurant Cuisine" tabindex='4'>
           <option value="all">All Cuisines</option>
         </select>
       </div>
@@ -39,7 +39,7 @@
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   
-  <footer id="footer">
+  <footer id="footer" tabindex='-1'>
     Copyright &copy; 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
 

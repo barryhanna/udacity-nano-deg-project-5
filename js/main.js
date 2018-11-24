@@ -4,6 +4,8 @@ let restaurants,
 var newMap
 var markers = []
 
+let tabindex = 4;
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -170,6 +172,8 @@ createRestaurantHTML = (restaurant) => {
   more.onclick = () => {
     window.location = DBHelper.urlForRestaurant(restaurant);
   }
+  more.tabIndex = ++tabindex;
+  
   li.append(more);
 
   return li

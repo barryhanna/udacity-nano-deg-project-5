@@ -1,6 +1,8 @@
 let restaurant;
 var newMap;
 
+let reviewListingTabIndex = 8;
+
 /**
  * Initialize map as soon as the page is loaded.
  */
@@ -171,7 +173,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  li.setAttribute('tabindex','0');
+  li.tabIndex = ++reviewListingTabIndex;
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.classList.add("review-author-name");

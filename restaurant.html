@@ -18,10 +18,10 @@
   <header>
     <!-- Beginning nav -->
     <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1 tabindex='1'><a href="/">Restaurant Reviews</a></h1>
       
       <!-- Beginning breadcrumb -->
-      <ul id="breadcrumb" role="navigation">
+      <ul id="breadcrumb" role="navigation" tabindex='2'>
         <li><a href="/">Home</a></li>
       </ul>
       <!-- End breadcrumb -->
@@ -36,17 +36,17 @@
     
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h2 id="restaurant-name" aria-label="restaurant name"></h2>
-      <img id="restaurant-img" alt="restaurant image">
-      <p id="restaurant-cuisine" aria-label="cuisine"></p>
-      <p id="restaurant-address" aria-label="address"></p>
-      <table id="restaurant-hours" aria-label="opening hours"></table>
+      <h2 id="restaurant-name" aria-label="restaurant name" tabindex='3'></h2>
+      <img id="restaurant-img" alt="restaurant image" tabindex='4'>
+      <p id="restaurant-cuisine" aria-label="cuisine" tabindex='5'></p>
+      <p id="restaurant-address" aria-label="address" tabindex='6'></p>
+      <table id="restaurant-hours" aria-label="opening hours" tabindex='7'></table>
     </section>
     <!-- end restaurant -->
 
     <!-- Beginning map -->
     <section id="map-container">
-        <div id="map" aria-label="restaurant location map" role="application"></div>
+        <div id="map" aria-label="restaurant location map" role="application" tabindex='8'></div>
       </section>
       <!-- End map -->
     <!-- Beginning reviews -->
