@@ -11,7 +11,9 @@ const urlsToCache = [
     '/js/main.js',
     '/js/restaurant_info.js',
     '/js/register.js',
-    '/img/placeholder.jpg'
+    '/img/placeholder.jpg',
+    '/js/mapbox-key.js',
+    '/favicon.ico'
 ];
 
 self.addEventListener('install', function(event) {
@@ -19,6 +21,8 @@ self.addEventListener('install', function(event) {
       caches.open(cacheName).then(function(cache) {
           console.log('Opened cache');
           return cache.addAll(urlsToCache);
+        }).then(function() {
+          self.skipWaiting()
         })
         .catch(function(error) {
           console.log(`Failed to open cache: ${error}`);
@@ -31,8 +35,12 @@ self.addEventListener('fetch', function(event) {
   let cachedURL = new URL(event.request.url);
 
   // check if request is for restaurant.html
-  if(event.request.url.indexOf("restaurant.html") > -1) {
+  if(event.request.url.includes("restaurant.html")) {
     request = new Request("restaurant.html");
+  }
+
+  if(cachedURL.hostname !== 'localhost') {
+    event.request.mode = "no-cors";
   }
 
   event.respondWith(
@@ -47,22 +55,20 @@ self.addEventListener('fetch', function(event) {
         function(response) {
           if(!response || response.status !== 200 || response.type !== 'basic') {
               return response;
-            }
+          }
 
-            var responseToCache = response.clone();
+          var responseToCache = response.clone();
 
-            caches.open(cacheName)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
+          caches
+            .open(cacheName)
+            .then(function(cache) {
+              cache.put(event.request, responseToCache);
+          });
 
-            return response;
+          return response;
           }
         ).catch(function(error) {
-            if(event.request.url.indexOf(".jpg") > -1) {
-              return caches.match("/img/placeholder.jpg");
-            }
-            return new Response('Internet connection down.' , {
+            return new Response('Internet connection down, no cached version available.' , {
               status: 404,
               statusText: 'Internet connection down.'
             });
